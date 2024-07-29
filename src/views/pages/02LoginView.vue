@@ -1,5 +1,6 @@
 <template>
   <div class="d-flex justify-content-center">
+    <!-- 沒登入=>登入畫面 -->
     <form v-if="!isSignIn">
       <h1>Login Page</h1>
       <div class="mb-3">
@@ -12,6 +13,7 @@
       </div>
       <button type="button" class="btn btn-primary" @click="doLogin">Login</button>
     </form>
+    <!-- 有登入=>顯示user name及登出按鈕 -->
     <div v-else class="text-center">
       <h1>Welcome {{ getUserName }}</h1>
       <button type="button" class="btn btn-primary" @click="logout">Logout</button>
@@ -27,13 +29,15 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+//登入資料
 const email = ref('');
 const userName = ref('');
 
 const { login, logout } = useUserStore();
 const { isSignIn, getUserName } = storeToRefs(useUserStore());
 
-const doLogin = async () => {
+const doLogin = () => {
+  //登入後轉跳至home
   let data = {
     email: email.value,
     userName: userName.value

@@ -2,6 +2,7 @@
   <h1>Home</h1>
   <p>count now is {{ count }}</p>
   <p>doubleCount now is {{ doubleCount }}</p>
+  <!-- 有登入=>顯示user name及登出按鈕 -->
   <template v-if="isSignIn">
     <p>Hello {{ getUserName }}</p>
     <button type="button" class="btn btn-primary" @click="logout">Logout</button>
