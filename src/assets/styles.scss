@@ -16,6 +16,11 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/forms';
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar'; // Requires nav
+
+@import 'bootstrap/scss/utilities/api';

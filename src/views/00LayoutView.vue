@@ -35,7 +35,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import { ref } from 'vue';
 
-const pages = ref(['count']);
+const pages = ref(['count', 'login']);
 </script>
 
 <style scoped></style>
