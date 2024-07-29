@@ -1,0 +1,21 @@
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+// Include functions first
+@import 'bootstrap/scss/functions';
+
+// Required
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar'; // Requires nav
