@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-center">
-    <form>
-      <h1>{{ titleText }}</h1>
+    <form v-if="!isSignIn">
+      <h1>Login Page</h1>
       <div class="mb-3">
         <label for="InputEmail" class="form-label">Email address</label>
         <input type="email" class="form-control" id="InputEmail" v-model="email" required />
@@ -12,28 +12,34 @@
       </div>
       <button type="button" class="btn btn-primary" @click="doLogin">Login</button>
     </form>
+    <div v-else class="text-center">
+      <h1>Welcome {{ getUserName }}</h1>
+      <button type="button" class="btn btn-primary" @click="logout">Logout</button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const email = ref('');
 const userName = ref('');
 
-const { login } = useUserStore();
+const { login, logout } = useUserStore();
 const { isSignIn, getUserName } = storeToRefs(useUserStore());
 
-const titleText = computed(() => (isSignIn.value ? `Welcome ${getUserName.value}` : 'Login Page'));
-
-const doLogin = () => {
+const doLogin = async () => {
   let data = {
     email: email.value,
     userName: userName.value
   };
   login(data);
+  router.push({ name: 'home' });
 };
 </script>
 

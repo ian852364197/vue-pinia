@@ -4,12 +4,11 @@
   <p>doubleCount now is {{ doubleCount }}</p>
   <template v-if="isSignIn">
     <p>Hello {{ getUserName }}</p>
-    <button type="button" class="btn btn-primary" @click="doLogout">Logout</button>
+    <button type="button" class="btn btn-primary" @click="logout">Logout</button>
   </template>
 </template>
 
 <script setup>
-import Swal from 'sweetalert2';
 import { storeToRefs } from 'pinia';
 import { useCounterStore } from '@/stores/counter';
 import { useUserStore } from '@/stores/user';
@@ -17,25 +16,6 @@ import { useUserStore } from '@/stores/user';
 const { count, doubleCount } = storeToRefs(useCounterStore());
 const { logout } = useUserStore();
 const { isSignIn, getUserName } = storeToRefs(useUserStore());
-
-const doLogout = async () => {
-  const result = await Swal.fire({
-    title: '您確定要登出嗎?',
-    showDenyButton: true,
-    confirmButtonText: '登出',
-    denyButtonText: '取消',
-    allowOutsideClick: false
-  });
-  if (result.isConfirmed) {
-    logout();
-    Swal.fire({
-      text: '已登出!',
-      icon: 'success',
-      allowOutsideClick: false,
-      confirmButtonText: '確認'
-    });
-  }
-};
 </script>
 
 <style scoped></style>
