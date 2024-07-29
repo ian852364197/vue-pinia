@@ -18,7 +18,7 @@
           <ul class="navbar-nav">
             <li class="nav-item" v-for="pageName in pages" :key="pageName">
               <RouterLink class="nav-item" :to="pageName"
-                ><button class="btn nav-item">
+                ><button class="btn btn-outline-secondary nav-item">
                   {{ pageName }}
                 </button>
               </RouterLink>
@@ -35,7 +35,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import { ref } from 'vue';
 
-const pages = ref(['test1', 'test2']);
+const pages = ref(['count']);
 </script>
 
 <style scoped></style>
